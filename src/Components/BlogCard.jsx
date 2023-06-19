@@ -27,7 +27,7 @@ let temp=()=>{
 let handlelike= async()=>{
   likes.push(id)
   try {
-    await axios.patch(`http://localhost:8080/blogs/update/${_id}`,{likes:likes})
+    await axios.patch(`https://good-plum-caiman-kit.cyclic.app/blogs/update/${_id}`,{likes:likes})
     dispatch(getblogs())
   } catch (error) {
     console.log(error)
@@ -37,7 +37,7 @@ let handlelike= async()=>{
 let handlecomment= async()=>{
   comments.push({username:uname,comment:com})
   try {
-    await axios.patch(`http://localhost:8080/blogs/update/${_id}`,{comments:comments})
+    await axios.patch(`https://good-plum-caiman-kit.cyclic.app/blogs/update/${_id}`,{comments:comments})
     dispatch(getblogs())
   } catch (error) {
     console.log(error)
@@ -67,7 +67,7 @@ let handlecomment= async()=>{
        <Text mt="15px" fontWeight={"bold"}>{content}</Text>
        <HStack justifyContent={"space-between"} mt="15px">
         <HStack>
-        {likes.includes(id)?<FcLike size="2em" />:<FcLikePlaceholder onClick={handlelike} size="2em"/> }
+        {likes && likes.includes(id)?<FcLike size="2em" />:<FcLikePlaceholder onClick={handlelike} size="2em"/> }
         <Text fontWeight={"bold"} color="blue.400">{likes.length}</Text>
         <FaRegComment size="1.5em" onClick={()=> setTog(true)}/>
         <Text fontWeight={"bold"} color="blue.400" fontSize={"18px"}>{comments.length}</Text>

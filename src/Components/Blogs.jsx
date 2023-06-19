@@ -12,7 +12,7 @@ const dispatch = useDispatch()
 let edit = async(_id,con)=>{
 
     try {
-      await axios.patch(`http://localhost:8080/blogs/update/${_id}`,{content:con})
+      await axios.patch(`https://good-plum-caiman-kit.cyclic.app/blogs/update/${_id}`,{content:con})
       dispatch(getblogs())
     } catch (error) {
       console.log(error)
@@ -21,12 +21,13 @@ let edit = async(_id,con)=>{
   let del = async(_id)=>{
 
     try {
-      await axios.delete(`http://localhost:8080/blogs/delete/${_id}`)
+      await axios.delete(`https://good-plum-caiman-kit.cyclic.app/blogs/delete/${_id}`)
       dispatch(getblogs())
     } catch (error) {
       console.log(error)
     }
   }
+  
 useEffect(()=>{
     dispatch(getblogs())
     

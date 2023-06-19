@@ -14,7 +14,7 @@ const Signin = () => {
     const dispatch = useDispatch()
     let handlelogin= async()=>{
     try {
-       let res = await axios.post(`http://localhost:8080/user/login`,{email,password})       
+       let res = await axios.post(`https://good-plum-caiman-kit.cyclic.app/user/login`,{email,password})       
       let data = res.data
       dispatch(user({id:data.id,uname:data.name}))
       if(data.msg==="login successful"){
@@ -52,13 +52,13 @@ const Signin = () => {
                   <Box w={{base:"100%",md:"100%",lg:"50%"}} h={{base:"100%",md:"100%",lg:"80%"}} display={{base:"none",md:"inline",lg:"90vh"}} bgImage={LoginImg} bgSize={"cover"}> 
                    
                   </Box>   
-                  <Box w={{base:"100%",md:"100%",lg:"40%"}} h={{base:"100%",md:"100%",lg:"90%"}} m="auto" gap="0px" border="1px solid teal" borderRadius={"10px"} mt="100px" p="30px">
+                  <Box w={{base:"100%",md:"100%",lg:"40%"}} h={{base:"100%",md:"100%",lg:"90%"}} m="auto" boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" gap="0px" border="1px solid teal" borderRadius={"10px"} mt="100px" p="30px">
                   <Heading color="#693fee" textAlign={"center"}>Welcome to <Text color="#27dec0" fontSize={"45px"}> Blog<Text as="span" color="#333">Shlog</Text></Text> </Heading>
                   <Text fontSize={"30px"} mt="20px" color="#27dec0" fontWeight={"bold"}>Email</Text>
                   <Input placeholder='Enter email' w="90%" onChange={(e)=>setEmail(e.target.value) }></Input>
                   <Text fontSize={"30px"} mt="20px" color="#333"  fontWeight={"bold"}>Password</Text>
                   <Input placeholder='Enter Password' w="90%" onChange={(e)=>setPassword(e.target.value) }></Input>
-                    <Button bgColor={"#27dec0"} w="40%" fontWeight={"bold"} fontSize={"20px"} mt="30px" onClick={handlelogin}>Sign Up</Button>
+                    <Button bgColor={"#27dec0"} w="40%" fontWeight={"bold"} fontSize={"20px"} mt="30px" onClick={handlelogin}>LOGIN</Button>
                    <Text fontSize={"18px"} mt="30px" fontWeight="600">Not a member yet? </Text>
                     </Box>  
               </Stack>
